@@ -1,0 +1,46 @@
+# Local agent and generated distribution state
+.agents/
+.codex/
+.aws/
+local/
+dist/
+.env
+.env.*
+!.env.example
+
+# Local game media, captures, and profiler output are not project source.
+*.bsa
+*.7z
+*.mp3
+*.ogg
+*.wav
+*.dmp
+*.etl
+
+# CMake and compiler outputs
+**/build/
+**/build-*/
+**/CMakeFiles/
+**/CMakeCache.txt
+**/cmake_install.cmake
+**/CTestTestfile.cmake
+**/*.dir/
+*.obj
+*.pch
+*.pdb
+*.ilk
+*.exp
+*.lib
+
+# Local test results and machine reports
+MADFilter-Test-Results.txt
+MADFilter-XP-Test-Results.txt
+XP-System-Info.txt
+
+# Editor and operating-system state
+.vs/
+.vscode/
+*.user
+*.suo
+Thumbs.db
+Desktop.ini

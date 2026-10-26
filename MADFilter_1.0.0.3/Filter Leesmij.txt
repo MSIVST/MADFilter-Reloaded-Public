@@ -1,0 +1,35 @@
+Hallo,
+
+Dit is de MAD Transform Filter. Het is een DirectShow MPEG Audio
+decoder filter, die gebruikt kan worden om MPEG audio te decoderen
+naar PCM CD-kwaliteit WAVE audio. Het kan gebriukt worden als een
+vervanger voor de standaard Fraunhover MP3 filter, die op de
+meeste Windows systemen aanwezig is.
+
+Installeren is makkelijk::
+
+1) Kopieer het bestand MADFilter.ax naar de WinNT\System32 of
+   Windows\System folder.
+2) Type in, in een console, of via Start->UItvoeren:
+   "regsvr32 MADFilter.ax"
+
+Verwijderen is ook makkelijk:
+
+1) Type in, in ee console, of via Start->UItvoeren:
+   "regsvr32 -u MADFilter.ax"
+2) Verwijder MADFilter.ax van de WinNT\System32 of Windows\System
+   folder. (Of laat het staan, het neemt verder alleen nog maar
+   ruimte op de harddisk in, maar wordt verder nooit meer geladen.)
+
+Er is geen echte ondersteuning op dit produkt, maar indien ik tijd
+heb wil ik altijd wel proberen te helpen. Daarnaast ben ik
+uiteraard altijd geintereseerd in suggesties, bugs en idee-en.
+
+M.v.g.,
+
+Armin Gerritsen,
+25-04-2002
+
+http://sourceforge.net/projects/maddxshow/
+
+

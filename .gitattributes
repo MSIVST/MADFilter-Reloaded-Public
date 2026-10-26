@@ -1,0 +1,15 @@
+* text=auto
+
+# Keep legacy Windows scripts usable when cloned on any platform.
+*.bat text eol=crlf
+*.cmd text eol=crlf
+
+# Historical Visual Studio project files are Windows-native text.
+*.dsp text eol=crlf
+*.dsw text eol=crlf
+*.sln text eol=crlf
+*.vcproj text eol=crlf
+
+# Internal notes stay in the repository, not source release archives.
+MADFilter-Reloaded/docs export-ignore
+MADFilter-Reloaded/docs/** export-ignore

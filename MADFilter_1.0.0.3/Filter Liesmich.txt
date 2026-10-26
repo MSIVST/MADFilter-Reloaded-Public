@@ -1,0 +1,32 @@
+Hallo,
+
+Du hältst den MAD Transform Filter in deinen Händen. 
+
+Dieser Directshow MPEG Audio Decoder Filter kann verwendet werden,
+um MPEG 1 Layer 1,2,3 Audio in das PCM WAVE Format umzuwandeln, bzw 
+um MPEG Audio in jedem auf Directshow basierenden Player abzuspielen.
+Er kann zB als Ersatz für den, auf den meisten Windows Systemen 
+installierten, Frauenhofer MPEG 1 Layer 3 Directshow Filter zum Abspielen 
+von .mp3 Dateien dienen. 
+
+
+Die Installation ist einfach:
+
+1) Entpacke MADFilter.ax gemeinsam mit register.bat in einen Ordner deiner
+   Wahl (zB Windows\System)
+2) Führe register.bat aus
+   Alternativ kannst du auch einen DOS Commandline Befehl ausführen, welcher
+   "C:\Pfad zu\regsvr32.exe C:\Pfad zu\MADFilter.ax" lauten muß. Die Pfadangaben
+   müssen natürlich denen deines Systems entsprechen.
+
+
+Zum Deinstallieren mußt du ähnlich vorgehen:
+
+1) Verwende die Datei unregister.bat oder den folgenden Befehl:
+   "C:\Pfad zu\regsvr32.exe /u C:\Pfad zu\MADFilter.ax"
+2) Lösche die MADFilter.ax Datei
+
+
+Viel Spaß mit MADFilter!
+
+http://sourceforge.net/projects/maddxshow/

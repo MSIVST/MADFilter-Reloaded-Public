@@ -1,0 +1,19 @@
+MADFilter Reloaded - historical Windows XP test notice
+Original package date: 2026-07-28
+
+1. Identify the package. This notice concerns the older XP test bundle, not the
+   current Windows x86 release candidate.
+
+2. Understand the evidence. That bundle was built to target Windows XP and
+   passed checks on the development computer. Building for XP does not prove
+   that it works on an actual XP computer.
+
+3. If testing the complete historical bundle, use a disposable or backed-up
+   computer and follow README-TESTING.txt. The intended systems were Windows
+   XP x86 SP3 and Windows XP x64 SP2; the filter itself is 32-bit and unsigned.
+
+4. Record the results of RUN-XP-TEST.cmd and confirm registration cleanup.
+   A successful result qualifies only the tested package and environment.
+
+See the current project's Technicals.md for current build instructions and
+qualification limits.
