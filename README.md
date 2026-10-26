@@ -13,8 +13,8 @@ that a game can select as part of its playback system.
 Windows 11. Scoped automated and game checks passed on Windows 11; older
 Windows runtime verification remains pending. Licensed under GPL v2.
 
-[Usage guide](MADFilter-Reloaded/HOW_TO_USE.md) Â· [Release notes](MADFilter-Reloaded/RELEASE_NOTES.md) Â·
-[Technical reference](MADFilter-Reloaded/Technicals.md) Â· [Changelog](MADFilter-Reloaded/CHANGELOG.md)
+[Usage guide](MADFilter-Reloaded/HOW_TO_USE.md) · [Release notes](MADFilter-Reloaded/RELEASE_NOTES.md) ·
+[Technical reference](MADFilter-Reloaded/Technicals.md) · [Changelog](MADFilter-Reloaded/CHANGELOG.md)
 
 ## Benefits
 
