@@ -47,9 +47,17 @@ cleanup checks. No new game session was needed for these script-name/doc changes
 
 - `MADFilter-Reloaded-2.1.0-rc.2-Windows-x86.zip`: the single XP-through-11 filter, helper, instructions,
   technical reference, license, and notices.
-- `MADFilter-Reloaded-2.1.0-rc.2-source.zip`: matching project source and notices.
-- `SHA256SUMS.txt`: checksums for the two archives.
+- `MADFilter-Reloaded-2.1.0-rc.2-source.zip`: project source and notices, without
+  historical reference folders or vendored dependencies.
+- `MADFilter-Reloaded-2.1.0-rc.2-dependency-source.zip`: the exact libmad source
+  snapshot needed to build, including its original license and notices.
+- `SHA256SUMS.txt`: checksums for all three archives.
+
+The Windows package remains self-contained. libmad and the C/C++ runtime are
+statically linked; no separate dependency DLL or source download is needed for
+playback. Only developers need both source archives. This packaging revision
+changes documentation and source layout, not the tested binaries.
 
 Follow [HOW_TO_USE.md](HOW_TO_USE.md) for setup and
 [Technicals.md](Technicals.md) for exact test results.
-Internal investigations and maintainer notes are excluded from both archives.
+Internal investigations and maintainer notes are excluded from all archives.

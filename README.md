@@ -99,7 +99,12 @@ See [Technicals.md](MADFilter-Reloaded/Technicals.md#current-candidate) for exac
 - [CHANGELOG.md](MADFilter-Reloaded/CHANGELOG.md): changes by version.
 - [SECURITY.md](MADFilter-Reloaded/SECURITY.md): private security reporting and safe attachment handling.
 
-To build from source, keep `MADFilter-Reloaded/` and `libmad/` side by side and
+The Windows package is self-contained: libmad and the C/C++ runtime are statically
+linked. Players do not need either source download or a separate libmad DLL.
+
+To build from source, download both the project source and
+`MADFilter-Reloaded-2.1.0-rc.2-dependency-source.zip` from the release. Extract
+the dependency ZIP beside `MADFilter-Reloaded/`, creating a sibling `libmad/`, and
 follow the [build instructions](MADFilter-Reloaded/Technicals.md#build-from-source).
 
 ## Report a problem or contribute

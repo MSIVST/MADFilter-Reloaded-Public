@@ -67,8 +67,13 @@ PE/import checks do not establish XP/Vista/7/8/10 runtime compatibility.
 <a id="build-from-source"></a>
 ## Build from source
 
-1. Keep sibling `MADFilter-Reloaded/` and `libmad/` directories from the source
-   package. Install Visual Studio with the v141_xp C++ toolset,
+1. Download the project source ZIP and the matching
+   `MADFilter-Reloaded-2.1.0-rc.2-dependency-source.zip` from the same release.
+   Extract the project ZIP first, then extract the dependency ZIP into the
+   resulting project root so `MADFilter-Reloaded/` and `libmad/` are siblings.
+   For a Git clone, extract the dependency ZIP into the repository root.
+   Use this exact dependency snapshot rather than the latest upstream branch.
+   Install Visual Studio with the v141_xp C++ toolset,
    its XP SDK support, CMake 3.16+, and DirectShow base-class headers plus an
    x86 `strmbase.lib` rebuilt with v141_xp and the static CRT.
 2. Open PowerShell in `MADFilter-Reloaded/`. Substitute your actual SDK paths

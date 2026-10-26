@@ -2,6 +2,10 @@
 
 ## 2.1.0-rc.2 - prerelease, 2026-10-26
 
+- Public packaging revision: remove historical reference folders from the public
+  tree and project source download; supply exact libmad sources separately.
+  The Windows package retains the unchanged statically linked binaries.
+
 - Keep only Register.bat, Unregister.bat, Status.bat, and Run-Game.bat.
   Remove Install/Uninstall aliases without changing registration behavior.
 - Document the persistent-registration workflow for mod managers and script

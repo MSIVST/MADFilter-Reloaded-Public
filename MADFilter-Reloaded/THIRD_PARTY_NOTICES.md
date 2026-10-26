@@ -25,7 +25,7 @@ Copyright (C) 2021-2026 Tenacity Team and Contributors
 ```
 
 These lines are attribution from the upstream README, separate from the
-original libmad COPYRIGHT notice reproduced below. The vendored source's
+original libmad COPYRIGHT notice reproduced below. The separately supplied dependency source's
 `libmad/COPYRIGHT`, `libmad/COPYING`, and `libmad/CREDITS` remain unchanged.
 The source snapshot declares libmad version 0.16.4; an upstream branch may
 continue to change independently of the version included here.
@@ -35,7 +35,10 @@ continue to change independently of the version included here.
 The original MADFilter and libmad notices below specify GNU GPL version 2 or,
 at the recipient's option, any later version, and include their warranty
 disclaimers. The full GPL version 2 text accompanies this package in [LICENSE](LICENSE).
-The matching source archive includes the decoder source and its original notices.
+The complete corresponding source is supplied as two downloads alongside the
+Windows package: the project source ZIP and the matching dependency-source ZIP.
+The latter contains the exact libmad source and its original notices. Both
+source downloads are needed to build; neither is needed to run the filter.
 
 The historical notices mention contacting their authors about alternate terms.
 MADFilter Reloaded is distributed under its GPL license; those statements do
@@ -94,7 +97,7 @@ attribution.
 
 ## libmad copyright and warranty notice
 
-Verbatim from the bundled `libmad/COPYRIGHT`:
+Verbatim from the dependency-source `libmad/COPYRIGHT`:
 
 ```text
  libmad - MPEG audio decoder library
@@ -120,7 +123,7 @@ Verbatim from the bundled `libmad/COPYRIGHT`:
 
 ## libmad author and contributor credits
 
-Verbatim from the bundled `libmad/CREDITS`. Tenacity attribution is listed above.
+Verbatim from the dependency-source `libmad/CREDITS`. Tenacity attribution is listed above.
 
 ```text
  libmad - MPEG audio decoder library
