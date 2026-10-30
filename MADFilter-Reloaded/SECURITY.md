@@ -12,7 +12,7 @@ test or an interrupted session.
 
 ## 2. Understand the testing limits
 
-The single XP-through-11 candidate passed automated checks on Windows 11.
+The single XP-through-11 release build passed automated checks on Windows 11.
 The same packaged binaries also completed Fallout 3 and New Vegas checks with
 positive feedback and verified cleanup. Testing does not guarantee that all defects have been
 found. There has been no independent security audit, and older Windows versions

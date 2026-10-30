@@ -1,6 +1,6 @@
 # Set up, test, and remove MADFilter Reloaded
 
-These steps apply to the Windows x86 package for 2.1.0-rc.2. Testing has been
+These steps apply to the Windows x86 package for 2.1.0. Testing has been
 performed on Windows 11. One x86 build targets Windows XP through Windows 11;
 older Windows runtime validation remains pending. On XP, use an Administrator
 account or Run as with administrator credentials. Batch installation requires

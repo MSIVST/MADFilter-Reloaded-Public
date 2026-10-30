@@ -1,21 +1,23 @@
 # MADFilter Reloaded technical reference
 
-Updated 2026-10-26. This is the developer reference. For installation and game
+Updated 2026-10-29. This is the developer reference. For installation and game
 testing, start with [HOW_TO_USE.md](HOW_TO_USE.md).
 
 ## Reading order
 
-1. [Current candidate and evidence](#current-candidate)
+1. [Current release and evidence](#current-candidate)
 2. [Build from source](#build-from-source)
 3. [Decoder contract](#decoder-contract)
 4. [Host policy](#host-policy)
 5. [Registration and diagnostics](#registration-and-diagnostics)
 6. [Security and validation](#security-and-validation)
 
-<a id="current-candidate"></a>
-## Current candidate
+For a side-by-side overview, see the [decoder comparison matrix](#decoder-comparison-matrix).
 
-Release: **2.1.0-rc.1**, tag `v2.1.0-rc.1`; binary version `2.1.0.0`. There is one distributable x86 build targeting Windows XP through Windows 11,
+<a id="current-candidate"></a>
+## Current release
+
+Release: **2.1.0**, tag `v2.1.0`; binary version `2.1.0.0`. There is one distributable x86 build targeting Windows XP through Windows 11,
 using v141_xp and a static CRT. No separate modern release is produced.
 Platform targeting is distinct from runtime qualification.
 
@@ -68,7 +70,7 @@ PE/import checks do not establish XP/Vista/7/8/10 runtime compatibility.
 ## Build from source
 
 1. Download the project source ZIP and the matching
-   `MADFilter-Reloaded-2.1.0-rc.2-dependency-source.zip` from the same release.
+   `MADFilter-Reloaded-2.1.0-dependency-source.zip` from the same release.
    Extract the project ZIP first, then extract the dependency ZIP into the
    resulting project root so `MADFilter-Reloaded/` and `libmad/` are siblings.
    For a Git clone, extract the dependency ZIP into the repository root.
@@ -196,7 +198,7 @@ logging is off by default because disabling it improved reported lag/cutoffs.
 Inspect logs for paths before sharing. `policy a=0 b=1` and `source-bsa` identify
 the special policy; `source-generic` identifies the ordinary policy.
 
-Release 2.1.0-rc.2 includes four batch entry points:
+Release 2.1.0 includes four batch entry points:
 
 | Script | Helper call |
 |---|---|
@@ -208,7 +210,7 @@ Release 2.1.0-rc.2 includes four batch entry points:
 The Install/Uninstall aliases have been removed. Register and Unregister retain
 identical contents to the corresponding rc.1 scripts; no C++ helper or decoder
 behavior changed. Users choose Run as administrator for mutating operations.
-The scripts do not self-elevate. Published rc.1 archives remain unchanged.
+The scripts do not self-elevate. Earlier release-candidate archives remain unchanged.
 
 Scripts disable delayed expansion, quote paths, use `shift /1` to preserve the
 script path when consuming `/nopause`, initialize failure status, and propagate
@@ -280,22 +282,45 @@ Recognized Fallout 3, New Vegas, and Oblivion executables need no override.
 Unregister with `.\MADFilterRegister.exe /unregister` after a persistent
 installation or an interrupted session.
 
-### Comparison scope
+<a id="decoder-comparison-matrix"></a>
+### MADFilter vs MADFilter Reloaded vs Windows decoder
 
-The original 1.0.0.3 package used `regsvr32 MADFilter.ax` in `register.bat` and
-`regsvr32 /u MADFilter.ax` in `unregister.bat`. Reloaded keeps that user workflow
-while routing registration through its x86 helper. Its current implementation
-adds per-instance decoder state, bounded buffering and recovery, host-name policy,
-and targeted regression checks, as detailed above.
+The Windows column refers specifically to the **Windows Media MP3 Decoder**
+(`mp3dmod.dll`, `CLSID_CMP3DecMediaObject`) used as a DMO through DirectShow's
+DMO Wrapper. Windows also has other MPEG audio components; this column does
+not describe every installed decoder or guarantee which one a game selects.
+Microsoft documents this decoder's formats and DMO/MFT interfaces in its
+[MP3 decoder reference](https://learn.microsoft.com/en-us/windows/win32/medfound/windows-media-mp3-decoder)
+and the DirectShow integration in its
+[DMO Wrapper reference](https://learn.microsoft.com/en-us/windows/win32/directshow/dmo-wrapper-filter).
 
-The README's Windows comparison is specifically the Windows Media MP3 Decoder
-(`mp3dmod.dll`). Microsoft documents MP3 input and DMO/MFT interfaces in its
-[decoder reference](https://learn.microsoft.com/en-us/windows/win32/medfound/windows-media-mp3-decoder).
-That documentation does not describe an equivalent Bethesda host-name policy.
-This absence is not proof of internal behavior. No matched quality, CPU-time,
-latency, or long-session reliability benchmark here establishes Reloaded as
-superior to that decoder. Module presence alone does not establish which
-component decoded a particular stream.
+The original column describes the inspected 1.0.0.3 source and package readme.
+Its preserved libmad header identifies version 0.15.0 (beta); the original
+distributed binary has not been rebuilt or requalified for this comparison.
+"Not evaluated" identifies an evidence limit, rather than a missing feature.
+
+| Area | MADFilter 1.0.0.3 | MADFilter Reloaded 2.1.0 | Windows decoder (`mp3dmod.dll`) |
+|---|---|---|---|
+| Integration | Native x86 DirectShow filter | Native x86 DirectShow filter | DMO via the DirectShow DMO Wrapper; MFT on applicable Windows versions |
+| Decoder core | Embedded libmad; preserved header reports 0.15.0 (beta) | Statically linked Tenacity libmad 0.16.4 | Microsoft component (`mp3dmod.dll`); internals not inspected |
+| Compressed formats | MPEG audio through the historical libmad wrapper; full format coverage not requalified | MPEG-1/2/2.5 Layers I, II and III | Microsoft documents MPEG-1 and MPEG-2 Layer III (MP3) |
+| PCM output | 16-bit stereo; duplicates mono into both channels | Signed 16-bit PCM, mono or stereo at source rate | Documented DMO output includes 8/16-bit PCM, source rate/channels, and optional mono/downsampling; floating-point output is an MFT feature |
+| Decoder state | File-static stream, frame and synthesis state shared by filter instances | Decoder state and buffers owned by each instance | Internal state ownership not evaluated here |
+| Fallout/Oblivion policy | No executable-name policy found in inspected source | Recognizes Fallout 3, New Vegas and Oblivion; applies scoped timestamp/continuation policy | No equivalent host-name policy described in the cited Microsoft documentation; internal behavior not evaluated |
+| Split input and format changes | Not qualified against the current boundary and format-change regressions | Retains split headers/partial frames; checks decoded rate/channels and negotiated PCM format | Not run through the same regression harness |
+| Damaged audio and recovery limits | Historical libmad recovery loop; not qualified against the current timeline tests | Bounded recovery, scan/carry/frame budgets and replacement silence for recoverable damaged frames | Recovery and timeline behavior not compared with the current harness |
+| Registration and selection | `regsvr32`/`regsvr32 /u`; source registers `MERIT_PREFERRED + 0x2E90000` | Four batch entry points and x86 helper; normal merit or preferred merit + 1; optional session cleanup | Windows component; actual graph selection depends on available filters, media types and merit |
+| Installation | Separate MADFilter package and registration | Self-contained Windows x86 package; no libmad or VC runtime DLL download | No MADFilter package required to use the Windows component |
+| Validation recorded for this release | No matched current game or automated retest | CTest 4/4, 16 batch checks, generated decoder/graph cases, and scoped prior Fallout 3/New Vegas sessions with the exact packaged binaries | No matched current game or automated retest |
+| Windows qualification | Historical package; current OS compatibility not requalified | Targets XP through 11; scoped runtime checks passed on Windows 11 only | Availability and behavior depend on Windows version and installed components; not qualified by this release |
+
+No matched quality, CPU-time, latency, or long-session reliability benchmark
+establishes a winner among these three. The matrix describes implementation,
+documented capabilities and test scope, rather than measured audio superiority.
+Module presence alone does not establish which component decoded a particular
+stream. See [Working with Codecs](https://learn.microsoft.com/en-us/windows/win32/directshow/working-with-codecs)
+for Microsoft's discussion of the different codec forms and system-dependent
+filter inventory.
 
 <a id="security-and-validation"></a>
 ## Security and validation

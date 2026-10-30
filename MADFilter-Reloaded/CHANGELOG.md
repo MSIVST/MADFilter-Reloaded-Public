@@ -1,5 +1,16 @@
 # Changes in MADFilter Reloaded
 
+## 2.1.0 - final release, 2026-10-29
+
+- Promote rc.2 to the final release with the exact tested filter, helper,
+  four batch entry points, and libmad dependency source.
+- Update release documentation and retain the scoped Windows 11 results
+  and unverified older-Windows compatibility limits.
+- Add a technical comparison matrix for original MADFilter, Reloaded and the
+  Windows Media MP3 Decoder, with source/documentation and test-scope limits.
+- Keep the self-contained Windows package and separate project/dependency
+  source downloads.
+
 ## 2.1.0-rc.2 - prerelease, 2026-10-26
 
 - Public packaging revision: remove historical reference folders from the public

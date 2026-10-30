@@ -1,15 +1,17 @@
-# MADFilter Reloaded 2.1.0-rc.2
+# MADFilter Reloaded 2.1.0
 
-Prerelease dated 2026-10-26. One x86 build targets Windows XP through Windows 11.
+Final release dated 2026-10-29. One x86 build targets Windows XP through Windows 11.
 Windows 11 qualification is complete for the recorded scope; legacy-Windows
 runtime testing remains pending.
 
 ## 1. What changed
 
-This packaging/documentation update retains the exact rc.1 filter and helper
-binaries. It keeps only Register.bat, Unregister.bat, Status.bat, and Run-Game.bat
-and documents mod-manager and GECK expectations; those integrations remain
-unqualified. The existing decoder improvements and validation follow.
+This final release promotes rc.2 with the exact tested filter and helper
+binaries, unchanged batch scripts, and the same libmad dependency source.
+Release documentation is updated; decoder and helper behavior is unchanged.
+Mod-manager and GECK integrations remain unqualified.
+
+The decoder improvements included in 2.1.0 follow.
 
 - Added automatic playback settings for Fallout 3, New Vegas, and Oblivion.
 - Improved handling of small pieces of audio, damaged audio, and track changes.
@@ -41,15 +43,15 @@ Use `Register.bat`, `Unregister.bat`, `Status.bat`, and `Run-Game.bat`.
 Register uses preferred priority. Use **Run as administrator** for registration
 changes. The four-script layout passed 16 isolated command-handling checks.
 The unchanged helper previously passed live registration/removal and game-session
-cleanup checks. No new game session was needed for these script-name/doc changes.
+cleanup checks. No new game session was run for this final documentation/package update.
 
 ## 4. Release packages
 
-- `MADFilter-Reloaded-2.1.0-rc.2-Windows-x86.zip`: the single XP-through-11 filter, helper, instructions,
+- `MADFilter-Reloaded-2.1.0-Windows-x86.zip`: the single XP-through-11 filter, helper, instructions,
   technical reference, license, and notices.
-- `MADFilter-Reloaded-2.1.0-rc.2-source.zip`: project source and notices, without
+- `MADFilter-Reloaded-2.1.0-source.zip`: project source and notices, without
   historical reference folders or vendored dependencies.
-- `MADFilter-Reloaded-2.1.0-rc.2-dependency-source.zip`: the exact libmad source
+- `MADFilter-Reloaded-2.1.0-dependency-source.zip`: the exact libmad source
   snapshot needed to build, including its original license and notices.
 - `SHA256SUMS.txt`: checksums for all three archives.
 
@@ -58,6 +60,7 @@ statically linked; no separate dependency DLL or source download is needed for
 playback. Only developers need both source archives. This packaging revision
 changes documentation and source layout, not the tested binaries.
 
-Follow [HOW_TO_USE.md](HOW_TO_USE.md) for setup and
-[Technicals.md](Technicals.md) for exact test results.
+Follow [HOW_TO_USE.md](https://github.com/MSIVST/MADFilter-Reloaded-Public/blob/v2.1.0/MADFilter-Reloaded/HOW_TO_USE.md)
+for setup and [Technicals.md](https://github.com/MSIVST/MADFilter-Reloaded-Public/blob/v2.1.0/MADFilter-Reloaded/Technicals.md)
+for exact test results.
 Internal investigations and maintainer notes are excluded from all archives.

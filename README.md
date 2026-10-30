@@ -9,7 +9,7 @@ MADFilter Reloaded converts MP3 and other MPEG audio into sound that compatible
 Windows applications can play. It is a DirectShow filter: an audio component
 that a game can select as part of its playback system.
 
-**Release:** 2.1.0-rc.2 (prerelease). One x86 build targets Windows XP through
+**Release:** 2.1.0 (final release). One x86 build targets Windows XP through
 Windows 11. Scoped automated and game checks passed on Windows 11; older
 Windows runtime verification remains pending. Licensed under GPL v2.
 
@@ -47,11 +47,11 @@ Use the Windows x86 package, not the source ZIP. Extract it into a permanent
 folder and keep the filter, executable helper, and batch files together.
 
 1. Double-click `Status.bat` to check for an existing registration.
-2. Right-click **`Register.bat` â†’ Run as administrator** to prefer MADFilter
+2. Right-click **`Register.bat` → Run as administrator** to prefer MADFilter
    for compatible game playback.
 3. Start your game normally and check music or radio playback.
 4. To remove registration, close the game and run
-   **`Unregister.bat` â†’ Run as administrator**. Check status again.
+   **`Unregister.bat` → Run as administrator**. Check status again.
 
 Registration applies to compatible 32-bit applications across the system and
 stays active until removed. It does not guarantee that every audio stream will
@@ -59,7 +59,7 @@ select MADFilter. No game files need to be replaced.
 
 ### Try one game session
 
-Start from an unregistered state. Right-click **`Run-Game.bat` â†’ Run as
+Start from an unregistered state. Right-click **`Run-Game.bat` → Run as
 administrator**, then enter the full path to the actual game executable, such as `Fallout3.exe`. Keep the window
 open until the game exits and cleanup finishes. If interrupted, run
 `Unregister.bat` as Administrator and check status.
@@ -103,7 +103,7 @@ The Windows package is self-contained: libmad and the C/C++ runtime are statical
 linked. Players do not need either source download or a separate libmad DLL.
 
 To build from source, download both the project source and
-`MADFilter-Reloaded-2.1.0-rc.2-dependency-source.zip` from the release. Extract
+`MADFilter-Reloaded-2.1.0-dependency-source.zip` from the release. Extract
 the dependency ZIP beside `MADFilter-Reloaded/`, creating a sibling `libmad/`, and
 follow the [build instructions](MADFilter-Reloaded/Technicals.md#build-from-source).
 
